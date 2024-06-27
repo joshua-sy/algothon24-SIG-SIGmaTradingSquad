@@ -93,3 +93,9 @@ The formula used will be:
 Your algorithms will be assessed against _unseen, future_ price data of the same 50 instruments within the provided simulated trading universe.
 
 We expect algorithms to have a maximum runtime of ~10min.
+
+# Creating environment
+python3 -m venv path/to/venv
+
+# To use environment
+source path/to/venv/bin/activate
