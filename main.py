@@ -10,15 +10,18 @@ import pandas as pd
 nInst = 50
 currentPos = np.zeros(nInst)
 lastAction = np.zeros(nInst)
+priceBoughtAt = np.zeros(nInst)
 hardStopPercent = 0.03
+
+
+def stopLoss():
+
+    return
 
 # checks the price after planned to buy/sell and current position
 #  if less than the hardStop price then return the planend amount to buy /sell
 # else return 0 to buy/sell
 #  We can edit this to buy till it reaches maximum price by adding an equation
-def stopLoss():
-    return
-
 def checkHardPtStop(currPrice, numToBuySell, stockNum):
     global hardStopPercent
     global currentPos
@@ -67,6 +70,7 @@ def getMyPosition(prcSoFar):
         if last_crossover_value == 1:
             numStocksBuySell = checkHardPtStop(currPrice, 100, col)
             currentPos[col] = numStocksBuySell
+            
             if (currentPos[col] == 0):
                 lastAction[col] = 1
             else:
@@ -84,6 +88,6 @@ def getMyPosition(prcSoFar):
                 lastAction[col] = 0
         else:
             currentPos[col] = 0
-    print("currentPos")
-    print(currentPos)
+    # print("currentPos")
+    # print(currentPos)
     return currentPos
